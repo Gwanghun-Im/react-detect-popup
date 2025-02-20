@@ -30,3 +30,21 @@ function App() {
   )
 }
 ```
+
+## API
+
+### DictionaryProvider
+
+전역적으로 사전 데이터를 관리하는 컨텍스트 프로바이더입니다.
+
+### DetectPop
+
+키워드를 감지하고 팝업을 표시하는 컴포넌트입니다.
+
+#### Props
+
+- `children`: string - 검사할 텍스트
+- `config`: DetectPopConfig - 설정 옵션
+- `className`: string - 추가 스타일링을 위한 클래스
+
+...

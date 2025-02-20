@@ -1,0 +1,44 @@
+{
+  "name": "react-detect-popup",
+  "version": "1.0.0",
+  "description": "텍스트 내 키워드를 감지하여 팝업으로 설명을 보여주는 React 컴포넌트",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "clean": "rm -rf dist"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "dependencies": {
+    "@radix-ui/react-toast": "^1.1.5",
+    "clsx": "^2.0.0",
+    "tailwind-merge": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0"
+  },
+  "keywords": [
+    "react",
+    "popup",
+    "tooltip",
+    "highlight",
+    "dictionary"
+  ],
+  "author": "gwanghun",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gwanghun/react-detect-popup"
+  }
+}
