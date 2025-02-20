@@ -6,7 +6,7 @@ import React, {
   useState,
   useEffect,
 } from "react"
-import { useToast } from "../hooks/useToast"
+import { useToast } from "./ui/useToast"
 import { useDictionary, type KeywordStyle } from "../contexts/DictionaryContext"
 import { cn } from "../lib/utils"
 
