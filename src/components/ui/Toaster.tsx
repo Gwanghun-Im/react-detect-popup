@@ -5,8 +5,8 @@ import {
   ToastProvider,
   ToastTitle,
   ToastViewport,
-} from "./toast"
-import { useToast } from "../../hooks/useToast"
+} from "./Toast"
+import { useToast } from "./useToast"
 import React from "react"
 
 export function Toaster() {

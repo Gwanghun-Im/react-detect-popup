@@ -1,6 +1,6 @@
 {
   "name": "react-detect-popup",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "private": false,
   "description": "텍스트 내 키워드를 감지하여 팝업으로 설명을 보여주는 React 컴포넌트",
   "main": "dist/index.js",
@@ -21,7 +21,8 @@
   "dependencies": {
     "@radix-ui/react-toast": "^1.1.5",
     "clsx": "^2.0.0",
-    "tailwind-merge": "^2.0.0"
+    "tailwind-merge": "^2.0.0",
+    "lucide-react": "^0.475.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",
