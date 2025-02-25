@@ -6,8 +6,9 @@ export const Toast = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Root>,
   React.ComponentPropsWithoutRef<typeof ToastPrimitives.Root> & {
     variant?: "default" | "destructive"
+    position?: "bottom" | "top"
   }
->(({ className, variant = "default", ...props }, ref) => {
+>(({ className, variant = "default", position = "bottom", ...props }, ref) => {
   const variantStyles =
     variant === "destructive"
       ? "border-destructive bg-destructive text-destructive-foreground"

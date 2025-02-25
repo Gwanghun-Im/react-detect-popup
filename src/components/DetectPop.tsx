@@ -77,6 +77,7 @@ export const DetectPop: FC<{
             </div>
           ),
           duration: toastDuration,
+          position: toastPosition,
         })
       }
     },
@@ -89,7 +90,7 @@ export const DetectPop: FC<{
       return
     }
 
-    const keywords = Object.keys(dictionary)
+    const keywords = Object.keys(dictionary).sort((a, b) => b.length - a.length)
     const segments: TextSegment[] = []
     let remainingText = children
 
