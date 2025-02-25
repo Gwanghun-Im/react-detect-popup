@@ -90,7 +90,7 @@ export const DetectPop: FC<{
       return
     }
 
-    const keywords = Object.keys(dictionary).sort((a, b) => b.length - a.length)
+    const keywords = Object.keys(dictionary).sort((a, b) => a.length - b.length)
     const segments: TextSegment[] = []
     let remainingText = children
 
