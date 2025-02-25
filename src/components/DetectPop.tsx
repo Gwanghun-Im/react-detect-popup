@@ -7,7 +7,12 @@ import React, {
   useEffect,
 } from "react"
 import { useToast } from "./ui/useToast"
-import { useDictionary, type KeywordStyle } from "../contexts/DictionaryContext"
+import {
+  useDictionary,
+  type KeywordStyle,
+  ColorValue,
+  CSSColorValue,
+} from "../contexts/DictionaryContext"
 import { cn } from "../lib/utils"
 
 interface DetectPopConfig {
@@ -19,6 +24,15 @@ interface DetectPopConfig {
 interface TextSegment {
   type: "text" | "keyword"
   content: string
+}
+
+export function getColorClass(pre: "bg" | "text", color?: ColorValue): string {
+  if (!color) return ""
+
+  // CSSColorValue 타입 체크 (#, rgb, rgba로 시작하는지 확인)
+  const isCSSColor = color.startsWith("#") || color.startsWith("rgb")
+
+  return isCSSColor ? `${pre}-[${color}]` : `${pre}-${color}`
 }
 
 export const DetectPop: FC<{
@@ -143,14 +157,22 @@ export const DetectPop: FC<{
             <span
               className={cn(
                 "cursor-pointer transition-colors hover:opacity-80",
-                dictionary[segment.content]?.style?.backgroundColor ||
-                  defaultStyle.backgroundColor,
-                dictionary[segment.content]?.style?.textColor ||
-                  defaultStyle.textColor,
-                dictionary[segment.content]?.style?.borderRadius ||
-                  defaultStyle.borderRadius,
-                dictionary[segment.content]?.style?.padding ||
-                  defaultStyle.padding
+                getColorClass(
+                  "bg",
+                  dictionary[segment.content]?.style?.backgroundColor
+                ) || defaultStyle.backgroundColor,
+                getColorClass(
+                  "text",
+                  dictionary[segment.content]?.style?.textColor
+                ) || defaultStyle.textColor,
+                dictionary[segment.content]?.style?.borderRadius
+                  ? `rounded-${
+                      dictionary[segment.content]?.style?.borderRadius
+                    }`
+                  : defaultStyle.borderRadius,
+                dictionary[segment.content]?.style?.padding
+                  ? `px-${dictionary[segment.content]?.style?.padding}`
+                  : defaultStyle.padding
               )}
               onClick={() => handleKeywordClick(segment.content)}
             >

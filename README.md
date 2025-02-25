@@ -95,6 +95,6 @@ interface KeywordStyle {
 - React DOM 16.8.0 이상
 - Tailwind CSS 3.0.0 이상
 
-## 라이센스
+## License
 
-MIT
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
