@@ -1,7 +1,7 @@
 module.exports = {
   content: [
     "./src/**/*.{js,ts,jsx,tsx}",
-    "./node_modules/your-package-name/**/*.{js,ts,jsx,tsx}",
+    "./.storybook/**/*.{js,ts,jsx,tsx}", // Storybook 파일 포함
   ],
   safelist: [
     // 모든 가능한 조합을 자동으로 생성
@@ -21,7 +21,7 @@ module.exports = {
     ),
     {
       pattern:
-        /(bg|text)-(white|slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)(-[50-900])?/,
+        /(bg|text)-(black|white|slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)(-[50-900])?/,
     },
     {
       pattern: /rounded-(none|sm|md|lg|xl|2xl|3xl|full)/,

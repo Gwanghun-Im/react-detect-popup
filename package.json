@@ -21,8 +21,8 @@
   "dependencies": {
     "@radix-ui/react-toast": "^1.1.5",
     "clsx": "^2.0.0",
-    "tailwind-merge": "^2.0.0",
-    "lucide-react": "^0.475.0"
+    "lucide-react": "^0.475.0",
+    "tailwind-merge": "^2.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",
