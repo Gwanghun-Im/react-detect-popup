@@ -17,6 +17,7 @@ export interface KeywordDefinition {
 }
 // Tailwind 기본 색상 타입
 export type TailwindColor =
+  | "black"
   | "white"
   | "slate"
   | "gray"
