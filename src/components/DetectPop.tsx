@@ -31,7 +31,7 @@ export const defaultStyle = {
   textColor: "text-blue-900",
   borderRadius: "rounded",
   padding: "px-1",
-}
+} as const
 
 export function getColorClass(pre: "bg" | "text", color?: ColorValue): string {
   if (!color) return ""
@@ -102,7 +102,6 @@ export const DetectPop: FC<{
         if (index !== -1 && index < earliestIndex) {
           earliestIndex = index
           foundKeyword = keyword
-          break
         }
       }
 
