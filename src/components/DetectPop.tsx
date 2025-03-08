@@ -26,6 +26,13 @@ interface TextSegment {
   content: string
 }
 
+export const defaultStyle = {
+  backgroundColor: "bg-blue-100",
+  textColor: "text-blue-900",
+  borderRadius: "rounded",
+  padding: "px-1",
+}
+
 export function getColorClass(pre: "bg" | "text", color?: ColorValue): string {
   if (!color) return ""
 
@@ -44,16 +51,7 @@ export const DetectPop: FC<{
   const { toast } = useToast()
   const [processedText, setProcessedText] = useState<TextSegment[]>([])
 
-  const {
-    defaultStyle = {
-      backgroundColor: "bg-blue-100",
-      textColor: "text-blue-900",
-      borderRadius: "rounded",
-      padding: "px-1",
-    },
-    toastPosition = "bottom",
-    toastDuration = 3000,
-  } = config
+  const { toastPosition = "bottom", toastDuration = 3000 } = config
 
   const handleKeywordClick = useCallback(
     (keyword: string) => {
@@ -90,7 +88,7 @@ export const DetectPop: FC<{
       return
     }
 
-    const keywords = Object.keys(dictionary).sort((a, b) => a.length - b.length)
+    const keywords = Object.keys(dictionary).sort((a, b) => b.length - a.length)
     const segments: TextSegment[] = []
     let remainingText = children
 
@@ -104,6 +102,7 @@ export const DetectPop: FC<{
         if (index !== -1 && index < earliestIndex) {
           earliestIndex = index
           foundKeyword = keyword
+          break
         }
       }
 
