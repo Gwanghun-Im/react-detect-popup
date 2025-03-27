@@ -2,6 +2,12 @@
 
 텍스트 내의 키워드를 감지하여 팝업으로 설명을 표시하는 React 컴포넌트
 
+[![npm version](https://img.shields.io/npm/v/react-detect-popup.svg)](https://www.npmjs.com/package/react-detect-popup)
+[![npm downloads](https://img.shields.io/npm/dm/react-detect-popup.svg)](https://www.npmjs.com/package/react-detect-popup)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub stars](https://img.shields.io/github/stars/Gwanghun-Im/react-detect-popup)](https://github.com/Gwanghun-Im/react-detect-popup/stargazers)
+[![hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FGwanghun-Im%2Freact-detect-popup&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
+
 ## 설치
 
 ```bash
@@ -11,6 +17,9 @@ yarn add react-detect-popup
 ```
 
 ## 사용법
+
+👇 Check out the demo in the website below
+[gwanghun.im](https://www.gwanghun.im/tools/react-detect-popup)
 
 ```tsx
 import { DetectPop, DictionaryProvider, Toaster } from "react-detect-popup"

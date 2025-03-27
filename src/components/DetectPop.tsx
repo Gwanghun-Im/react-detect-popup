@@ -81,13 +81,13 @@ export const DetectPop: FC<{
     },
     [dictionary, toast, toastDuration]
   )
-
   const processText = useCallback(() => {
     if (typeof children !== "string") {
       console.warn("DetectPop: children must be a string")
       return
     }
 
+    // 키워드를 길이 순으로 정렬하여 긴 키워드부터 매칭 (예: "react native"가 "react"보다 먼저 매칭되도록)
     const keywords = Object.keys(dictionary).sort((a, b) => b.length - a.length)
     const segments: TextSegment[] = []
     let remainingText = children
@@ -96,17 +96,19 @@ export const DetectPop: FC<{
       let earliestIndex = remainingText.length
       let foundKeyword = ""
 
-      // 가장 먼저 나타나는 키워드 찾기
+      // 모든 키워드에 대해 가장 먼저 나타나는 위치 찾기
       for (const keyword of keywords) {
+        // 대소문자 구분 없이 검색
         const index = remainingText.toLowerCase().indexOf(keyword.toLowerCase())
         if (index !== -1 && index < earliestIndex) {
           earliestIndex = index
+          // 원본 텍스트의 대소문자를 유지하기 위해 foundKeyword는 dictionary의 키워드 사용
           foundKeyword = keyword
         }
       }
 
       if (foundKeyword) {
-        // 키워드 이전의 텍스트 추가
+        // 키워드 이전의 일반 텍스트 추가
         if (earliestIndex > 0) {
           segments.push({
             type: "text",
@@ -114,7 +116,7 @@ export const DetectPop: FC<{
           })
         }
 
-        // 키워드 추가
+        // 발견된 키워드를 원본 텍스트의 대소문자 유지하며 추가
         segments.push({
           type: "keyword",
           content: remainingText.substring(
@@ -123,12 +125,12 @@ export const DetectPop: FC<{
           ),
         })
 
-        // 남은 텍스트 업데이트
+        // 처리된 부분을 제외한 나머지 텍스트로 업데이트
         remainingText = remainingText.substring(
           earliestIndex + foundKeyword.length
         )
       } else {
-        // 키워드가 더 이상 없으면 남은 텍스트 전체를 추가
+        // 더 이상 매칭되는 키워드가 없으면 남은 텍스트를 일반 텍스트로 추가
         segments.push({
           type: "text",
           content: remainingText,
